@@ -1,0 +1,216 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Manage Item</title>
+{% endblock title %}
+
+{% block content %}
+<div class="app-sidebar sidebar-shadow">
+    <div class="app-header__logo">
+        <div class="logo-src"></div>
+        <div class="header__pane ml-auto">
+            <div>
+                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
+                    data-class="closed-sidebar">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="app-header__mobile-menu">
+        <div>
+            <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+    </div>
+    <div class="app-header__menu">
+        <span>
+            <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                <span class="btn-icon-wrapper">
+                    <i class="fa fa-ellipsis-v fa-w-6"></i>
+                </span>
+            </button>
+        </span>
+    </div>
+    <div class="scrollbar-sidebar">
+        <div class="app-sidebar__inner">
+            <ul class="vertical-nav-menu">
+                <li class="app-sidebar__heading">Menu</li>
+                <li>
+                    <a href="/dashboard/">
+                        <i class="metismenu-icon pe-7s-rocket"></i>Dashboards
+                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="/my_account/">
+                                <i class="metismenu-icon"></i>My Account
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-browser"></i>Employees
+                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="/add_employee/">
+                                <i class="metismenu-icon"></i>Add Employee
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/employee_table/">
+                                <i class="metismenu-icon"></i>Employee Table
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/login_history/">
+                                <i class="metismenu-icon"></i>Employee Login History
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/attendance/">
+                                <i class="metismenu-icon"></i>Employee Attendance
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-browser"></i>Gasolines
+                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                    </a>
+                    <ul>
+                        <li">
+                            <a href="/add_gasoline/">
+                                <i class="metismenu-icon"></i>Add Gasolines
+                            </a>
+                            </li>
+                        <li">
+                            <a href="/manage_gasoline/">
+                                <i class="metismenu-icon"></i>Manage Gasolines
+                            </a>
+                </li>
+                <li>
+                    <a href="/gas_delivery/">
+                        <i class="metismenu-icon"></i>Gas Delivery
+                    </a>
+                </li>
+                <li>
+                    <a href="/gas_transaction/">
+                        <i class="metismenu-icon"></i>Gas Transactions
+                    </a>
+                </li>
+            </ul>
+            </li>
+            <li class="mm-active">
+                    <a href="#">
+                <i class="metismenu-icon pe-7s-browser"></i>Items
+                <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                </a>
+                <ul>
+                    <li>
+                        <a href="/add_item/">
+                            <i class="metismenu-icon"></i>Add Item
+                        </a>
+                    </li>
+                    <li class="mm-active">
+                        <a href="/manage_item/">
+                            <i class="metismenu-icon"></i>Manage Items
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/item_transaction/">
+                            <i class="metismenu-icon"></i>Item Transactions
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="metismenu-icon pe-7s-browser"></i>Expenses
+                    <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                </a>
+                    <ul>
+                        <li>
+                            <a href="/manage_expenses/">
+                                <i class="metismenu-icon"></i>Manage Expenses
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/expenses_transaction/">
+                                <i class="metismenu-icon"></i>Expenses Transactions
+                            </a>
+                        </li>
+                    </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="metismenu-icon pe-7s-plugin"></i>Reports
+                    <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                </a>
+                <ul>
+                    <li>
+                        <a href="/reports/">
+                            <i class="metismenu-icon"></i>Daily Totals
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="app-main__outer">
+    <div class="app-main__inner">
+        <div class="tabs-animation">
+            <div class="card mb-3">
+                <div class="card-header-tab card-header">
+                    <div class="card-header-title font-size-lg text-capitalize font-weight-normal"><i
+                            class="header-icon lnr-laptop-phone mr-3 text-muted opacity-6"> </i>Item | Manage Item Table
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Date & Time Added</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in items %}
+                            <tr>
+                                <td>{{item.item_name}}</td>
+                                <td>₱ {{item.item_price}}</td>
+                                <td>{{item.no_of_items}}</td>
+                                <td>{{item.date_time_added}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Date & Time Added</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include "footer.html" %}
+</div>
+{% endblock content %}
